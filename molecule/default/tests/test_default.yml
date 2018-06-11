@@ -1,0 +1,24 @@
+---
+package:
+  mongodb:
+    installed: true
+port:
+  tcp:27017:
+    listening: true
+    ip:
+      - 0.0.0.0
+service:
+  mongodb:
+    enabled: true
+    running: true
+user:
+  mongodb:
+    exists: true
+    groups:
+      - mongodb
+group:
+  mongodb:
+    exists: true
+process:
+  mongodb:
+    running: true
