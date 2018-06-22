@@ -11,8 +11,7 @@ galaxy_info:
         - xenial
   galaxy_tags:
     - molecule
+    - mongodb
 
 dependencies:
-  - {role: greendayonfire.mongodb, version: 1.1.1}
-  # List your role dependencies here, one per line.
-
+  - {role: greendayonfire.mongodb, version: 2.4.1}

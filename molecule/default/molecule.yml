@@ -6,7 +6,21 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance-1
+  - name: mongo_standalone_no_encryption
+    groups:
+      - no_encrypt
+  - name: mongo_standalone_encryption
+    groups:
+      - encrypt
+  - name: mongo_cluster_1
+    groups:
+      - cluster
+  - name: mongo_cluster_2
+    groups:
+      - cluster
+  - name: mongo_cluster_3
+    groups:
+      - cluster
 provisioner:
   name: ansible
   options:

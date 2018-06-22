@@ -2,5 +2,40 @@
 
 - name: run the main role
   hosts: all
+
+  pre_tasks:
+    - name: install percona repo
+      shell: wget https://repo.percona.com/apt/percona-release_0.1-4.$(lsb_release -sc)_all.deb && dpkg -i percona-release_0.1-4.$(lsb_release -sc)_all.deb
+      args:
+        creates: /etc/apt/sources.list.d/percona-release.list
+        executable: /bin/bash
+        chdir: /tmp
+
   roles:
-    - {role: ansible-mongodb}
+    - role: greendayonfire.mongodb
+      mongodb_package: percona-server-mongodb-36
+      mongodb_storage_dbpath: /var/lib/mongodb
+      mongodb_version: "3.6"
+      mongodb_net_bindip: "0.0.0.0"
+      mongodb_pymongo_from_pip: true
+      mongodb_user_update_password: "on_create"
+      mongodb_manage_service: true
+      mongodb_user: mongod
+      mongodb_pidfile_path: /var/run/mongod.pid
+      mongodb_net_maxconns: 65536
+      mongodb_net_port: 27017
+      mongodb_security_authorization: "disabled"
+      mongodb_processmanagement_fork: true
+      mongodb_systemlog_destination: "file"
+      mongodb_systemlog_logappend: true
+      mongodb_systemlog_path: /var/log/mongodb/{{ mongodb_daemon_name }}.log
+      mongodb_logrotate: true
+      mongodb_set_parameters: { "enableLocalhostAuthBypass": "true", "authenticationMechanisms": "SCRAM-SHA-1,MONGODB-CR" }
+      mongodb_daemon_name: mongod
+      mongodb_logrotate_options:
+        - compress
+        - copytruncate
+        - daily
+        - dateext
+        - rotate 7
+        - size 10M
