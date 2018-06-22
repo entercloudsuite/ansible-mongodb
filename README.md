@@ -6,7 +6,7 @@ Ansible Role: mongodb
 
 Installs mongodb on Ubuntu 16.04 (Xenial)
 
-## Requirements
+## Requirement
 
 This role requires Ansible 2.4 or higher.
 
