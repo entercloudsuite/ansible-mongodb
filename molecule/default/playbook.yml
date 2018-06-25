@@ -10,8 +10,8 @@
         dest: /root/percona_repo.deb
         validate_certs: no
 
-    - name: Install Percona Repo  
-      apt: 
+    - name: Install Percona Repo
+      apt:
         deb: /root/percona_repo.deb
         update_cache: yes
 
