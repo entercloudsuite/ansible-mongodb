@@ -34,11 +34,3 @@ scenario:
   name: default
 verifier:
   name: goss
-molecule:
-  test:
-    sequence:
-      - destroy
-      - syntax
-      - create
-      - converge
-      - verify
