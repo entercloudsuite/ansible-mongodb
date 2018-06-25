@@ -15,6 +15,10 @@
         deb: /root/percona_repo.deb
         update_cache: yes
 
+    - name: Update cache
+      apt:
+        update_cache: yes
+
   roles:
     - role: greendayonfire.mongodb
       mongodb_package: percona-server-mongodb-36

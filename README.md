@@ -26,12 +26,16 @@ Run with default vars:
           get_url:
             url: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
             dest: /root/percona_repo.deb
-            validate_certs: no
 
         - name: Install Percona Repo  
           apt: 
             deb: /root/percona_repo.deb
             update_cache: yes
+        
+        - name: Update cache
+          apt:
+            update_cache: yes
+
 
       roles:
         - role: ansible-mongodb
