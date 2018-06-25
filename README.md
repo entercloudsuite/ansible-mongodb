@@ -22,16 +22,16 @@ Run with default vars:
       hosts: all
 
       pre_tasks:
-    - name: Download Percona repo
-      get_url:
-        url: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
-        dest: /root/percona_repo.deb
-        validate_certs: no
+        - name: Download Percona repo
+          get_url:
+            url: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
+            dest: /root/percona_repo.deb
+            validate_certs: no
 
-    - name: Install Percona Repo  
-      apt: 
-        deb: /root/percona_repo.deb
-        update_cache: yes
+        - name: Install Percona Repo  
+          apt: 
+            deb: /root/percona_repo.deb
+            update_cache: yes
 
       roles:
         - role: ansible-mongodb
