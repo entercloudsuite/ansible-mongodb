@@ -40,5 +40,3 @@ scenario:
     - prepare
     - converge
     - destroy
-verifier:
-  name: goss
