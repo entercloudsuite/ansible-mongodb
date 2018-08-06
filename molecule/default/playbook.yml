@@ -20,7 +20,7 @@
         update_cache: yes
 
   roles:
-    - role: greendayonfire.mongodb
+    - role: undergreen.mongodb
       mongodb_package: percona-server-mongodb-36
       mongodb_storage_dbpath: /var/lib/mongodb
       mongodb_version: "3.6"
