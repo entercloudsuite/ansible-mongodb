@@ -14,4 +14,4 @@ galaxy_info:
     - mongodb
 
 dependencies:
-  - {role: undergreen.mongodb, version: 2.4.1}
+  - {role: undergreen.mongodb, version: 2.4.4}
