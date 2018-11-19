@@ -24,7 +24,7 @@ Run with default vars:
       pre_tasks:
         - name: Download Percona repo
           get_url:
-            url: https://repo.percona.com/apt/percona-release_0.1-4.{{ ansible_distribution_release }}_all.deb
+            url: https://repo.percona.com/apt/percona-release_0.1-8.{{ ansible_distribution_release }}_all.deb
             dest: /root/percona_repo.deb
 
         - name: Install Percona Repo  
